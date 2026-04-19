@@ -66,7 +66,7 @@ public class MovePositionOnlyPacket implements MinecraftPacket {
 
   @Override
   public int decodeExpectedMaxLength(ByteBuf buf, ProtocolUtils.Direction direction, ProtocolVersion version) {
-    return version.compareTo(ProtocolVersion.MINECRAFT_1_8) < 0 ? 33 : 25;
+    return version.noLessThan(ProtocolVersion.MINECRAFT_1_17) ? 33 : 25;
   }
 
   @Override

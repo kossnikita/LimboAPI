@@ -71,7 +71,7 @@ public class MovePacket implements MinecraftPacket {
 
   @Override
   public int decodeExpectedMaxLength(ByteBuf buf, ProtocolUtils.Direction direction, ProtocolVersion version) {
-    return version.compareTo(ProtocolVersion.MINECRAFT_1_8) < 0 ? 41 : 33;
+    return version.noLessThan(ProtocolVersion.MINECRAFT_1_8) ? 41 : 33;
   }
 
   @Override
